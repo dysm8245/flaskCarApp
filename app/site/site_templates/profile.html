@@ -6,6 +6,7 @@
                 <div class="card-body">
                     <h1 class="card-title">Welcome to your car collection: {{ current_user.username }}</h1>
                     <p class="card-text">Here is your token to add cars: {{ current_user.token }}</p>
+                    {% if current_user.is_authenticated %}
                     <div class="container-fluid">
                         <div class="row">
                             <div class="col-lg-6">
@@ -16,6 +17,7 @@
                             </div>
                         </div>
                     </div>
+                    {% endif %}
                 </div>
             </div>
         </div>
