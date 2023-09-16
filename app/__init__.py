@@ -9,10 +9,8 @@ from flask_migrate import Migrate
 from models import db as root_db, login_manager, ma
 from flask_cors import CORS
 from helpers import JSONEncoder
-# from flask_bcrypt import Bcrypt
 
 app = Flask(__name__)
-# bcrypt = Bcrypt(app)
 CORS(app)
 
 app.register_blueprint(site)

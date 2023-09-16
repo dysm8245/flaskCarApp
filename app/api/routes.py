@@ -15,7 +15,8 @@ def create_car():
     year = form.year.data
     user_token = form.user_token.data
     try:
-        if request.method == 'POST' and form.validate_on_submit():
+        logged_user = User.query.get(user_token).first()
+        if logged_user and request.method == 'POST' and form.validate_on_submit():
             car = CarCollection(make, model, year, user_token)
 
             db.session.add(car)
