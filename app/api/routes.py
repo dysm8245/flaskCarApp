@@ -14,8 +14,9 @@ def create_car():
     model = form.model.data
     year = form.year.data
     user_token = form.user_token.data
+
+    logged_user = User.query.filter(User.token == user_token).first()
     try:
-        logged_user = User.query.get(user_token).first()
         if logged_user and request.method == 'POST' and form.validate_on_submit():
             car = CarCollection(make, model, year, user_token)
 
