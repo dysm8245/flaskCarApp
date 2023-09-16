@@ -35,10 +35,16 @@ def create_car():
 @api.route('/showCars', methods=['GET'])
 def showCars():
     user_token = current_user.token
-    cars = CarCollection.query.filter_by(user_token = user_token).all()
+    try:
+        if user_token:
+            cars = CarCollection.query.filter_by(user_token = user_token).all()
 
-    response = cars_schema.dump(cars)
-    return render_template('carTable.html', data=response)
+            response = cars_schema.dump(cars)
+            return render_template('carTable.html', data=response)
+        else:
+            print("No user logged in")
+    except:
+        raise Exception('No user logged in')
 
 @api.route('/create', methods=['POST'])
 @token_required
