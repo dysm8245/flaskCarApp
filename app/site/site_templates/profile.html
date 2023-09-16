@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container-fluid">
+        <div class="d-flex align-items-center justify-content-center mb-5">
+            <div class="card bg-trans mt-5">
+                <div class="card-body">
+                    <h1 class="card-title">Welcome to your car collection: {{ current_user.username }}</h1>
+                    <p class="card-text">Here is your token to add cars: {{ current_user.token }}</p>
+                    <div class="container-fluid">
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <a href="{{ url_for('api.showCars') }}" class="btn btn-primary">Click here to show your cars</a>
+                            </div>
+                            <div class="col-lg-6">
+                                <a href="{{ url_for('api.create_car') }}" class="btn btn-primary">Add a Car to your collection here</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

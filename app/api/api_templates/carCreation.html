@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<section>
+    <div class="container d-flex justify-content-center align-items-center mt-5 mb-5">
+        <div class="col-lg-3 mt-5 mb-5 p-3 border rounded bg-light">
+        <div class=" text-center pb-3">
+            <h1>Add a car to your collection</h1>
+        </div>
+        <form action="/api/createCar" method="POST">
+            {{ form.hidden_tag() }}
+            <div class="form-group">
+                <fieldset>
+                    {{ form.make.label(class="mb-3") }}
+                    {{ form.make(class = "form-control mb-3", placeholder = 'Brand') }}
+                </fieldset>
+            </div>
+            <div class="form-group">
+                <fieldset>
+                    {{ form.model.label(class="mb-3") }}
+                    {{ form.model(class = "form-control mb-3", placeholder = 'Model') }}
+                </fieldset>
+            </div>
+            <div class="form-group">
+                <fieldset>
+                    {{ form.year.label(class="mb-3") }}
+                    {{ form.year(class = "form-control mb-3", placeholder = 'Year') }}
+                </fieldset>
+            </div>
+            <div class="form-group">
+                <fieldset>
+                    {{ form.user_token.label(class="mb-3") }}
+                    {{ form.user_token(class = "form-control", placeholder = 'Your user token') }}
+                </fieldset>
+            </div>
+            <div class="text-center mb-3">
+                {{ form.submit_button(class="btn btn-primary mt-5") }}
+            </div>
+        </form>
+        </div>
+    </div>
+    </section>
+{% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% block content %}
+<section>
+    <div class="container d-flex justify-content-center align-items-center mt-5 mb-5">
+        <div class="col-lg-3 mt-5 mb-5 p-3 border rounded bg-light">
+            <div class=" text-center pb-3">
+                <h1>Sign-Up</h1>
+            </div>
+            <form action="/signup" method="POST">
+                {{ form.hidden_tag() }}
+                <div class="form-group">
+                    <fieldset>
+                        {{ form.first_name.label(class="mb-3") }}
+                        {{ form.first_name(class = "form-control mb-3", placeholder = 'First Name') }}
+                    </fieldset>
+                </div>
+                <div class="form-group">
+                    <fieldset>
+                        {{ form.last_name.label(class="mb-3") }}
+                        {{ form.last_name(class = "form-control mb-3", placeholder = 'Last Name') }}
+                    </fieldset>
+                </div>
+                <div class="form-group">
+                    <fieldset>
+                        {{ form.email.label(class="mb-3") }}
+                        {{ form.email(class = "form-control mb-3", placeholder = 'Email') }}
+                    </fieldset>
+                </div>
+                <div class="form-group">
+                    <fieldset>
+                        {{ form.username.label(class="mb-3") }}
+                        {{ form.username(class = "form-control", placeholder = 'Username') }}
+                    </fieldset>
+                </div>
+                <div class="form-group">
+                    <fieldset>
+                        {{ form.password.label(class="mb-3") }}
+                        {{ form.password(class = "form-control", placeholder = 'Password') }}
+                    </fieldset>
+                </div>
+                <div class="text-center mb-3">
+                    {{ form.submit_button(class="btn btn-primary mt-5") }}
+                </div>
+                <div>
+                    <span>Already have an account?<a href="{{ url_for('auth.signin') }}" class="ml-1">Login here</a></span>
+                </div>
+            </form>
+        </div>
+    </div>
+    </section>
+{% endblock %}

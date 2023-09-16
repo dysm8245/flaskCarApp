@@ -1,5 +1,6 @@
 import os 
 from dotenv import load_dotenv
+
 basedir = os.path.abspath(os.path.dirname(__file__))
 load_dotenv(os.path.join(basedir,'.env'))
 
@@ -7,7 +8,7 @@ class Config():
     '''
         Set config variables for the flask app
         using environment variables where available,
-        otherwise, creat the config variable if not done already
+        otherwise, create the config variable if not done already
     '''
 
     FLASK_APP = os.getenv('FLASK_APP')

@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container-fluid">
+    <div class="d-flex align-items-center justify-content-center mb-5">
+        <div class="col-lg-6 text-center mb-5">
+            <h1 class="text-dark mt-5 mb-5">Your Car Collection</h1>
+            <table class="table table-bordered bg-table mt-5">
+                <tr>
+                    <th>Make</th>
+                    <th>Model</th>
+                    <th>Year</th>
+                </tr>
+                {% for dict in data %}
+                <tr>
+                    <td>{{ dict['make'] }}</td>
+                    <td>{{ dict['model'] }}</td>
+                    <td>{{ dict['year'] }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
