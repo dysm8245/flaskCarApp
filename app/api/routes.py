@@ -34,9 +34,10 @@ def create_car():
 
 @api.route('/showCars', methods=['GET'])
 def showCars():
-    user_token = current_user.token
+
     try:
-        if user_token:
+        if current_user is not None:
+            user_token = current_user.token
             cars = CarCollection.query.filter_by(user_token = user_token).all()
 
             response = cars_schema.dump(cars)
