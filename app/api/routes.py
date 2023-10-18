@@ -77,7 +77,6 @@ def updateCar(current_user_token, id):
     car.make = request.json['make']
     car.model = request.json['model']
     car.year = request.json['year']
-    car.user_token = request.json['user_token'] 
 
     db.session.commit()
 
